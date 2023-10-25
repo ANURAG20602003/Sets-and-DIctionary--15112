@@ -1,0 +1,21 @@
+# function dictDifference(d1, d2) that takes two dictionaries whose
+values are sets and returns a new dictionary that results from taking d1 and removing the values in d2
+for the common keys. If one the values becomes an empty set in the resulting dictionary, then the key
+should be removed. The values of non-common keys should remain the same. The function should be
+non-destructive.  (15-112 Spring 2022 Quiz 8, Doha Campus)
+
+
+def dictDifference(d1,d2):
+  returningDict = dict()
+  dict1Keys = set(d1.keys())
+  dict2Keys = set(d2.keys())
+  sameKeys = list(dict1Keys & dict2Keys)
+  for key1 in sameKeys:
+    if d1[key1] - d2[key1] != {}:
+      returningDict[key1] = d1[key1] - d2[key1] 
+  diffKeys = list(dict1Keys.difference(sameKeys))
+  for key2 in diffKeys:
+    returningDict[key2] = d1[key2]
+  return returningDict
+
+
