@@ -1,8 +1,12 @@
+
+(15-112 Spring 2022 Quiz 8, Doha Campus)
+
+
 # function dictDifference(d1, d2) that takes two dictionaries whose
 values are sets and returns a new dictionary that results from taking d1 and removing the values in d2
 for the common keys. If one the values becomes an empty set in the resulting dictionary, then the key
 should be removed. The values of non-common keys should remain the same. The function should be
-non-destructive.  (15-112 Spring 2022 Quiz 8, Doha Campus)
+non-destructive.  
 
 
 def dictDifference(d1,d2):
@@ -17,6 +21,9 @@ def dictDifference(d1,d2):
   for key2 in diffKeys:
     returningDict[key2] = d1[key2]
   return returningDict
+
+(15112 Fall 2021 Quiz 7, Doha Campus)
+
 
 # function commonKeysDictionary(L) that takes a list of dictionaries and combines them into a
 single dictionary. The combined dictionary should contain only keys that are present in all the dictionaries in
