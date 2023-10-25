@@ -18,6 +18,40 @@ def dictDifference(d1,d2):
     returningDict[key2] = d1[key2]
   return returningDict
 
+# function commonKeysDictionary(L) that takes a list of dictionaries and combines them into a
+single dictionary. The combined dictionary should contain only keys that are present in all the dictionaries in
+L. The value of each key in the combined dictionary should be the set of values associated with that key from
+the dictionaries in L. For example given: L = [ {"a": 1, "b": 2}, {"a": 3, "c": 4}, {"a": 5} ]
+commonKeysDictionary(L) returns {"a": {1,3,5}}, because the only key that is present in all the three
+dictionaries in L is a.
+
+def commonKeysDictionary(L):
+    if not L:
+        return {}
+    result = dict(L[0])
+
+    for d in L[1:]:
+        resultKeys = set(result.keys())
+        currentKeys = set(d.keys())
+        commonKeys = resultKeys.intersection(currentKeys)
+        for key in commonKeys:
+            result[key] = result[key].union({d[key]})
+
+    return result
+
+# Test cases
+L1 = [{"a": 1, "b": 2}, {"a": 3, "c": 4}, {"a": 5}]
+print(commonKeysDictionary(L1))  # Output: {"a": {1, 3, 5}}
+
+L2 = [{"a": 1, "b": 2, "c": 42}, {"a": 1, "c": 4}]
+print(commonKeysDictionary(L2))  # Output: {"a": {1}, "c": {4, 42}}
+
+L3 = [{"a": 1, "b": 2}, {"a": 3, "c": 4}, {"a": 5}]
+print(commonKeysDictionary(L3))  # Output: {"a": {1, 3, 5}}
+
+L4 = []
+print(commonKeysDictionary(L4))  # Output: {}
+
 
 
 
